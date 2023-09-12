@@ -1,0 +1,487 @@
+<script setup>
+import { onMounted } from 'vue';
+import useAvatar from './composables/useAvatar'
+import Alerta from './components/Alerta.vue'
+import Tabs from './components/Tabs/Tabs.vue'
+import Tab from './components/Tabs/Tab.vue'
+import GridOptions from './components/GridOptions.vue'
+
+const { 
+  skinsOptions, 
+  shirtsOptions, 
+  avatarOptions,
+  eyesColorsOptions,
+  hairsOptions,
+  alert, 
+  svgBody, 
+  changeShirt, 
+  saveChanges,
+  changeSkin,
+  changeEyeColor,
+  changeHair,
+ } = useAvatar();
+
+
+ onMounted(() => {
+  if (avatarOptions.skin) {
+    changeSkin(avatarOptions.skin);
+  }
+  if (avatarOptions.eye) {
+    changeEyeColor(avatarOptions.eye);
+  }
+});
+</script>
+
+<template>
+  <div class="fondo-gris">
+    <Alerta ref="alert" :title="'Atención!'" :message="'Cambios guardados.'" />
+    <div class="contenedor contenedor-grid">
+      <div class="columna-opciones">
+        <h2 class="titulo">Armario</h2>
+        <Tabs>
+          <Tab label="Ropa">
+            <div class="grid-scrollable">
+            <h3 class="categoria-division">Playeras</h3>
+            <GridOptions
+              :options="shirtsOptions"
+              :selectedOption="avatarOptions.shirt.name"
+              @update:selectedOption="changeShirt"
+            />
+            <h3 class="categoria-division">Camisas</h3>
+            <GridOptions
+              :options="shirtsOptions"
+              :selectedOption="avatarOptions.shirt.name"
+              @update:selectedOption="changeShirt"
+            />
+          </div>
+          </Tab>
+          <Tab label="Apariencia">
+            <div class="grid-scrollable">
+            <h3 class="categoria-division">Color piel</h3>
+            <GridOptions
+              :options="skinsOptions"
+              :selectedOption="avatarOptions.skin"
+              @update:selectedOption="changeSkin"
+            />
+            <h3 class="categoria-division">Color ojos</h3>
+            <GridOptions
+              :options="eyesColorsOptions"
+              :selectedOption="avatarOptions.shirt.name"
+              @update:selectedOption="changeEyeColor"
+            />
+          </div>
+          </Tab>
+          <Tab label="Pelo">
+            <div class="grid-scrollable">
+              <h3 class="categoria-division">Estilo pelo</h3>
+            <GridOptions
+              :options="hairsOptions"
+              :selectedOption="avatarOptions.shirt.name"
+              @update:selectedOption="changeHair"
+              :svgWidth="93"
+              :svgHeight="102"
+              svgViewBox="0 0 400 400"
+            /> 
+          </div>
+          </Tab>
+        </Tabs>
+      </div>
+      <div class="columna-avatar">
+        <div class="contenedor-titulo">
+          <h3 class="titulo-avatar">Milo</h3>
+        </div>
+        <div class="contenedor-avatar">
+          <svg
+            class="avatar"
+            width="287"
+            height="450"
+            viewBox="0 0 287 658"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="Avatar Camisas diferentes 1" clip-path="url(#clip0_660_12639)">
+              <g id="body" ref="svgBody">
+                <path
+                  id="Vector"
+                  d="M259.7 378.901C261.7 374.601 264.1 373.301 264.1 373.301C263.4 369.201 266.2 365.401 270.3 364.901L273.2 364.501C277 364.001 280.5 366.601 281.2 370.401V370.601C281.2 370.601 286 380.501 286.6 393.701C287.3 410.801 279.7 419.101 274.4 418.901C269.4 418.701 267.5 398.601 266.7 391.101L263.2 398.501C262.8 399.401 261.8 400.001 260.7 399.801C259.6 399.701 258.8 398.701 258.7 397.601L258 388.801C257.7 385.501 258.2 382.001 259.7 378.901Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_2"
+                  d="M264.1 373.2L238.6 273.7C236.3 264.9 242.3 256.2 251.2 255.1C259.3 254.1 266.7 259.8 267.8 267.9L281.2 370.3L264.1 373.2Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_3"
+                  d="M249.2 148C253.3 175.2 263.1 238.2 267.4 266C268.6 273.7 263.7 280.9 256.1 282.7C248.1 284.6 240.1 279.6 238.2 271.6L210.7 154.1C208.8 143 216.7 132.7 227.8 131.5C238.2 130.4 247.6 137.7 249.2 148Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_4"
+                  d="M177.3 331.101C177.3 332.001 177.3 333.001 177.2 333.901L169.8 406.701L164.4 460.101C163.9 465.301 161.4 469.801 157.8 473.101C154.2 476.401 149.4 478.301 144.2 478.301C132.7 478.301 123.5 468.801 123.9 457.301L125.2 406.701L127.1 331.201V330.401C127.3 323.601 130.2 317.601 134.7 313.201C139.2 308.801 145.4 306.201 152.1 306.201C166.2 306.301 177.2 317.501 177.3 331.101Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_5"
+                  d="M124 642.3L125.7 583.1L149.2 583.2L147.6 642.3H124Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_6"
+                  d="M151.9 632.601L156.4 652.401H77.9V651.801C77.9 647.201 80.5 643.101 84.6 641.101L121 626.601C122.3 626.001 124 626.001 125 627.101C129.7 632.101 134.9 640.201 149.3 631.401C150.4 630.701 151.7 631.401 151.9 632.601Z"
+                  fill="#1A1A1A"
+                />
+                <path id="Vector_7" d="M77.9 657.6H156.4V652.4H77.9V657.6Z" fill="#E6E6E6" />
+                <path
+                  id="Vector_8"
+                  d="M125.1 654.9L118.2 640.5"
+                  stroke="white"
+                  stroke-width="1.5637"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  id="Vector_9"
+                  d="M114.6 654.501L109.5 643.701"
+                  stroke="white"
+                  stroke-width="1.5637"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  id="Vector_10"
+                  d="M164.4 460.9L148.4 614.7H124.9L124 458C124.3 446.7 133.9 437.8 145.2 438.4C156.9 438.9 165.7 449.2 164.4 460.9Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_11"
+                  d="M238.6 457.401C239 468.901 229.8 478.401 218.3 478.401C213.1 478.401 208.3 476.401 204.7 473.201C201.1 470.001 198.6 465.401 198.1 460.201L192.7 406.801L185.3 334.001C185.2 333.101 185.2 332.101 185.2 331.201C185.3 317.601 196.3 306.301 210.3 306.301C217.1 306.301 223.2 309.001 227.7 313.301C232.2 317.701 235.1 323.701 235.3 330.501V331.101L237.2 406.701L238.6 457.401Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_12"
+                  d="M237.8 642.3L236.1 583.1L212.6 583.2L214.2 642.3H237.8Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_13"
+                  d="M209.8 632.601L205.3 652.401H283.8V651.801C283.8 647.201 281.2 643.101 277.1 641.101L240.7 626.601C239.4 626.001 237.7 626.001 236.7 627.101C232 632.101 226.8 640.201 212.4 631.401C211.4 630.701 210.1 631.401 209.8 632.601Z"
+                  fill="#1A1A1A"
+                />
+                <path id="Vector_14" d="M283.9 652.4H205.4V657.6H283.9V652.4Z" fill="#E6E6E6" />
+                <path
+                  id="Vector_15"
+                  d="M236.7 654.9L243.6 640.5"
+                  stroke="white"
+                  stroke-width="1.5637"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  id="Vector_16"
+                  d="M247.2 654.501L252.3 643.701"
+                  stroke="white"
+                  stroke-width="1.5637"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  id="Vector_17"
+                  d="M198.2 460.9L213.5 614.7H237L238.5 458C238.2 446.7 228.6 437.8 217.3 438.4C205.6 438.9 196.8 449.2 198.2 460.9Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_18"
+                  d="M22 174.9L64 268.7C67.7 277 77.8 280.1 85.5 275.4C92.5 271.1 94.7 262 90.5 255L37.2 166.6L22 174.9Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_19"
+                  d="M16 124.6C14.8 125.2 14.4 126.6 14.9 127.8L23.2 145.7L28.5 142.8L19.3 125.5C18.7 124.4 17.2 123.9 16 124.6Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_20"
+                  d="M7.29999 126.101C6.09999 126.701 5.59999 128.201 6.29999 129.401L18 151.601L23.5 148.701L10.6 127.001C9.99999 125.901 8.49999 125.501 7.29999 126.101Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_21"
+                  d="M3.2 133.8C2.1 134.4 1.7 135.7 2.3 136.8L13 156.5L17.9 153.9L6.2 134.6C5.5 133.6 4.3 133.3 3.2 133.8Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_22"
+                  d="M1.70001 144.001C0.800005 144.501 0.400005 145.701 0.900005 146.601L10.9 165.001L15.2 162.701L4.30001 144.701C3.70001 143.801 2.60001 143.501 1.70001 144.001Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_23"
+                  d="M38 143.2C34.5 145.4 33.1 151.3 33.1 151.3L26.5 139.1L6.90002 157.7L12.9 168.8C14.8 172.3 18.3 174.4 22.1 174.6C23.9 178.3 28.5 179.7 32.2 177.7L34.8 176.3C38 174.5 39.3 170.6 37.9 167.2C39.1 165.8 40 164 40.4 162.1C41.6 156.1 40.4 151 41.5 147C41.7 146.2 41.6 145.3 41.2 144.6L40.9 144C40.1 143 38.9 142.6 38 143.2Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_24"
+                  d="M199.5 115.201L180.7 115.501L162.4 115.201L123.2 131.901L130.7 276.201H180.7H231.2L238.7 131.901L199.5 115.201Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_25"
+                  d="M212.8 120.8L199.5 115.1L180.6 115.4L162.3 115.1L149 120.8C149 120.8 150.1 137.2 180.5 137.4C180.6 137.4 180.9 137.4 181 137.4C211.6 137.2 212.8 120.8 212.8 120.8Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_26"
+                  d="M181.2 135.2C169.9 135.2 160.7 126 160.7 114.7V71.0996H201.7V114.7C201.8 126.1 192.6 135.2 181.2 135.2Z"
+                  data-skin fill="#F3A396"
+                />
+                <path
+                  id="Vector_27"
+                  d="M160.8 84.9996C160.8 84.9996 172.1 106 185 104.9C204.9 103.3 201.6 78.5996 201.6 78.5996C201.6 78.5996 193.9 95.0996 181.6 95.0996C168 95.0996 160.8 84.9996 160.8 84.9996Z"
+                  fill="#1A1A1A"
+                />
+                <path
+                style="display: none;"
+                  id="hair"
+                  d="M150.7 56L148.7 35.3C146 22 156.3 15 165.4 15H196.7C206.3 15 217.7 22 212.9 36.9L210.1 59.5L150.7 56Z"
+                  fill="#603813"
+                />  
+                
+            
+                <path
+                  id="Vector_29"
+                  d="M207.9 67.3012C214.1 71.9012 224.8 51.0012 218.8 46.1012C212.7 41.2012 208.8 50.2012 208.8 50.2012L208.7 57.9012L207.8 65.1012L207.5 67.3012H207.9Z"
+                  data-skin fill="#F3A396"
+                />
+                <g id="Group">
+                  <path
+                    id="Vector_30"
+                    d="M209.5 57.7997C209.4 57.7997 209.4 57.7997 209.5 57.7997C209.3 57.6997 209.3 57.5997 209.3 57.4997C212.5 50.7997 217.2 52.2997 217.3 52.2997C217.4 52.2997 217.5 52.4997 217.4 52.5997C217.4 52.6997 217.2 52.7997 217.1 52.6997C216.9 52.5997 212.7 51.2997 209.7 57.6997C209.6 57.6997 209.5 57.7997 209.5 57.7997Z"
+                    fill="#1A1A1A"
+                  />
+                </g>
+                <g id="Group_2">
+                  <path
+                    id="Vector_31"
+                    d="M213.3 61.1012H213.2C213.1 61.0012 213.1 60.9012 213.2 60.8012C214.1 59.7012 214.4 58.7012 214.2 57.7012C213.8 55.8012 211.6 54.6012 211.6 54.6012C211.5 54.5012 211.5 54.4012 211.5 54.3012C211.6 54.2012 211.7 54.2012 211.8 54.2012C211.9 54.3012 214.2 55.5012 214.6 57.6012C214.8 58.7012 214.5 59.9012 213.5 61.1012C213.4 61.1012 213.4 61.1012 213.3 61.1012Z"
+                    fill="#1A1A1A"
+                  />
+                </g>
+                <path
+                  id="Vector_32"
+                  d="M153.7 67.3012C147.5 71.9012 136.8 51.0012 142.8 46.1012C148.9 41.2012 152.6 50.3012 152.6 50.3012L152.9 57.9012L153.8 65.1012L154.1 67.3012H153.7Z"
+                  data-skin fill="#F3A396"
+                />
+                <g id="Group_3">
+                  <path
+                    id="Vector_33"
+                    d="M152.2 57.7997C152.1 57.7997 152 57.7997 152 57.6997C148.9 51.2997 144.6 52.6997 144.6 52.6997C144.5 52.6997 144.4 52.6997 144.3 52.5997C144.3 52.4997 144.3 52.3997 144.4 52.2997C144.4 52.2997 149.1 50.7997 152.4 57.4997C152.4 57.5997 152.4 57.6997 152.2 57.7997Z"
+                    fill="#1A1A1A"
+                  />
+                </g>
+                <g id="Group_4">
+                  <path
+                    id="Vector_34"
+                    d="M148.3 61.1C148.2 61.1 148.2 61.1 148.1 61C147.1 59.8 146.8 58.7 147 57.5C147.4 55.4 149.7 54.1 149.8 54.1C149.9 54 150 54.1 150.1 54.2C150.2 54.3 150.1 54.4 150 54.5C150 54.5 147.8 55.7 147.4 57.6C147.2 58.6 147.5 59.7 148.4 60.7C148.5 60.8 148.5 60.9 148.4 61C148.4 61.1 148.4 61.1 148.3 61.1Z"
+                    fill="#1A1A1A"
+                  />
+                </g>
+                <path
+                  id="cabeza"
+                  d="M210 40.4004C210 53.3004 208.3 64.5004 206.6 72.4004C204.9 80.1004 200.2 86.9004 193.5 91.3004L192.3 92.1004C185.2 96.7004 176.1 96.8004 169 92.4004C161.8 87.9004 156.7 80.7004 155.1 72.4004C152.3 57.3004 152 40.5004 152 40.5004C152 40.5004 149.3 7.90037 180.6 8.50037C211.9 9.10037 210 40.4004 210 40.4004Z"
+                  data-skin fill="#F3A396"
+                />
+                <g transform="scale(0.41) translate(262, -27)" v-html="avatarOptions.hair.svg"></g> 
+                <path
+                  id="Vector_36"
+                  style="display: none;"
+                  d="M210.4 3.50027C200.5 -3.49973 180.8 1.40027 170.1 6.30027C170.3 3.10027 168.4 3.40027 168.4 3.40027C149.6 8.50027 154.5 23.3003 154.5 23.3003C154.5 23.3003 154.6 23.3003 154.7 23.4003C152.7 27.7003 150.2 36.8003 152.6 53.3003C152.6 53.3003 157.6 35.5003 157.7 24.8003C166.1 28.5003 189 37.4003 203.9 32.4003C205.4 41.5003 209.3 53.2003 209.3 53.2003C210.9 42.5003 210.2 34.9003 209.2 29.8003C210.1 29.2003 211 28.4003 211.8 27.6003C211.7 27.7003 224.5 13.5003 210.4 3.50027Z"
+                  fill="#603813"
+                />
+                <g id="Group_5">
+                  <path
+                    id="Vector_37"
+                    d="M180.8 66.2012C179.7 66.2012 178.6 65.5012 178.2 64.5012C178.1 64.2012 178 63.8012 178 63.4012V52.9012C178 52.8012 178.1 52.7012 178.2 52.7012C178.3 52.7012 178.4 52.8012 178.4 52.9012V63.4012C178.4 63.7012 178.5 64.0012 178.6 64.3012C179 65.4012 180.3 66.0012 181.5 65.6012L184.2 64.9012C184.3 64.9012 184.4 64.9012 184.5 65.1012C184.5 65.2012 184.5 65.3012 184.3 65.4012L181.6 66.1012C181.4 66.2012 181.1 66.2012 180.8 66.2012Z"
+                    fill="#1A1A1A"
+                  />
+                </g>
+                <path
+                  id="eye_left"
+                  d="M167.8 52.7008C169.3 52.7008 170.5 51.5008 170.5 50.0008C170.5 48.5008 169.3 47.3008 167.8 47.3008C166.3 47.3008 165.1 48.5008 165.1 50.0008C165.1 51.5008 166.3 52.7008 167.8 52.7008Z"
+                  fill="#1A1A1A"
+                />
+                <path
+                  id="eye_right"
+                  d="M193 52.7008C194.5 52.7008 195.7 51.5008 195.7 50.0008C195.7 48.5008 194.5 47.3008 193 47.3008C191.5 47.3008 190.3 48.5008 190.3 50.0008C190.2 51.5008 191.5 52.7008 193 52.7008Z"
+                  fill="#1A1A1A"
+                />
+                <g id="Group_6">
+                  <path
+                    id="Vector_40"
+                    d="M180.4 72.9008C175 72.9008 172.9 71.3008 172.8 71.3008C172.7 71.2008 172.7 71.1008 172.8 71.0008C172.9 70.9008 173 70.9008 173.1 71.0008C173.1 71.0008 175.2 72.5008 180.5 72.5008C185.3 72.5008 188.4 71.0008 188.4 70.9008C188.5 70.8008 188.6 70.9008 188.7 71.0008C188.8 71.1008 188.7 71.2008 188.6 71.3008C188.4 71.4008 185.4 72.9008 180.4 72.9008Z"
+                    fill="#1A1A1A"
+                  />
+                </g>
+                <g id="Group_7">
+                  <path
+                    id="Vector_41"
+                    d="M180.7 88.9C180.6 88.9 180.5 88.8 180.5 88.7V85.7C180.5 85.6 180.6 85.5 180.7 85.5C180.8 85.5 180.9 85.6 180.9 85.7V88.7C180.8 88.8 180.8 88.9 180.7 88.9Z"
+                    fill="#1A1A1A"
+                  />
+                </g>
+                <path
+                  id="Vector_42"
+                  d="M174.7 43.8L174.8 38.5L165 38.7C163.8 38.7 162.6 39.2 161.6 40L157.7 44.5L164.2 43.5L174.7 43.8Z"
+                  fill="#1A1A1A"
+                />
+                <path
+                  id="Vector_43"
+                  d="M186.2 43.8L186.1 38.5L195.9 38.7C197.1 38.7 198.3 39.2 199.3 40L203.2 44.5L196.7 43.5L186.2 43.8Z"
+                  fill="#1A1A1A"
+                />
+                <path
+                  id="Vector_44"
+                  d="M235.5 331.101H127.2L130.7 276.201H230.8L235.5 331.101Z"
+                  fill="#E6E6E6"
+                />
+                <path
+                  id="Vector_45"
+                  d="M177.3 331.1C177.3 332 177.3 333 177.2 333.9L172.3 382H125.9L127.2 331.3V331.1H177.3Z"
+                  fill="#E6E6E6"
+                />
+                <path
+                  id="Vector_46"
+                  d="M236.7 382H190.3L185.4 333.9C185.3 333 185.3 332 185.3 331.1H235.4L236.7 382Z"
+                  fill="#E6E6E6"
+                />
+                <path
+                  id="Vector_47"
+                  d="M235.5 331.3H127.2L130.7 276.4H230.8L235.5 331.3Z"
+                  fill="#1B1464"
+                />
+                <path
+                  id="Vector_48"
+                  d="M127.2 330.6L124 457.5C123.6 469 132.8 478.5 144.3 478.5C154.7 478.5 163.4 470.7 164.5 460.3L177.3 334.1C178.9 319.3 167.2 306.4 152.4 306.4C138.7 306.4 127.6 317.1 127.2 330.6Z"
+                  fill="#1B1464"
+                />
+                <path
+                  id="Vector_49"
+                  d="M164.4 460.999L155.1 614.799H117.4L124.1 458.099C124.4 446.799 134 437.899 145.3 438.499C156.9 439.099 165.7 449.399 164.4 460.999Z"
+                  fill="#1B1464"
+                />
+                <path
+                  id="Vector_50"
+                  d="M235.3 330.6L238.5 457.5C238.9 469 229.7 478.5 218.2 478.5C207.8 478.5 199.1 470.7 198 460.3L185.2 334.1C183.7 319.3 195.3 306.4 210.1 306.4C223.8 306.4 234.9 317.1 235.3 330.6Z"
+                  fill="#1B1464"
+                />
+                <path
+                  id="Vector_51"
+                  d="M198.1 460.999L207.4 614.799H242.9L238.5 458.099C238.2 446.799 228.6 437.899 217.3 438.499C205.6 439.099 196.8 449.399 198.1 460.999Z"
+                  fill="#1B1464"
+                />
+                <path
+                  id="Vector_52"
+                  d="M107.7 144.401C98.2 170.201 75.8 229.901 65.9 256.301C63.2 263.601 66.5 271.701 73.5 275.001C80.9 278.501 89.8 275.301 93.3 267.801L144.2 158.301C148.3 147.801 142.7 136.101 132 132.701C122 129.501 111.3 134.701 107.7 144.401Z"
+                  data-skin fill="#F3A396"
+                />
+              </g>
+              <g v-html="avatarOptions.shirt.svg"></g>
+            </g>
+            <defs>
+              <clipPath id="clip0_660_12639">
+                <rect width="287" height="658" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="contenedor-acciones">
+          <button type="button" class="accion" @click="saveChanges()">Guardar</button>
+          <button class="accion">Ir a la tienda</button>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</template>
+
+<style scoped>
+.fondo-gris {
+  background: #f6f8fd;
+}
+
+.grid-scrollable {
+  height: 400px;
+  overflow-y: scroll; 
+}
+.categoria-division {
+  margin-top: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ffaa01;
+}
+
+
+/* Estilos generales */
+.contenedor {
+  width: 100%;
+  max-width: 1280px; /* Esto podría variar según tu configuración de Tailwind */
+  margin: 0 auto;
+}
+.contenedor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100vh;
+}
+.columna-opciones {
+  background-color: white;
+  padding: 35px 40.1px 0px 40.1px;
+}
+.columna-opciones .titulo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.columna-opciones .categorias {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 19.21px;
+}
+
+.columna-avatar {
+  background-color: #f6f8fd;
+}
+.columna-avatar .contenedor-titulo {
+  width: 183px;
+  height: 30px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  margin-top: 43.11px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.columna-avatar .contenedor-titulo .titulo-avatar {
+  font-weight: bold;
+  text-align: center;
+}
+.columna-avatar .contenedor-avatar {
+  padding-top: 45px;
+  display: flex;
+  justify-content: center;
+}
+.columna-avatar .contenedor-avatar .avatar {
+  margin: 0 auto;
+}
+.columna-avatar .contenedor-acciones {
+  display: flex;
+  justify-content: center;
+  margin-top: 19.21px;
+  gap: 5px;
+  padding-top: 20px;
+}
+.columna-avatar .accion {
+  padding: 10px 38px;
+  border-radius: 30px;
+  font-weight: bold;
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+}
+</style>

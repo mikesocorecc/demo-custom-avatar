@@ -1,0 +1,7 @@
+id="Vector_36" => pelo central
+Vector_28 => Pelo lado derecho izquierdo 
+Vector_29 => 0reja derecha 
+Vector_27 => barbilla fondo negro
+Vector_26 => cuello 
+Vector_32 => Oreja izquierda 
+Vector_38 => Ojos 
