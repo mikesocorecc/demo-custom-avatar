@@ -76,7 +76,7 @@ export default {
 .opcion {
   border: 2px solid #aeb7bd;
   border-radius: 10px;
-  height: 197px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,14 +84,24 @@ export default {
   background-color: #ffffff;
   cursor: pointer;
 }
+@media only screen and (min-width: 768px) {
+  .opcion { 
+    height: 197px; 
+  }
+}
 .seleccionado {
   margin-left: auto;
   padding-right: 10px;
   padding-top: 9px;
   display: none;
 }
-.contenedor-svg {
-  padding: 39px 43px;
+.contenedor-svg { 
+  padding:10px 10px;
+}
+@media only screen and (min-width: 768px) {
+  .contenedor-svg {
+    padding: 39px 43px;
+  }
 }
 .contenedor-color{
   width: 102px;

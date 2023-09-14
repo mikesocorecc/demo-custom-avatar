@@ -66,7 +66,7 @@ const {
             <h3 class="categoria-division">Color ojos</h3>
             <GridOptions
               :options="eyesColorsOptions"
-              :selectedOption="avatarOptions.shirt.name"
+              :selectedOption="avatarOptions.eye"
               @update:selectedOption="changeEyeColor"
             />
           </div>
@@ -76,7 +76,7 @@ const {
               <h3 class="categoria-division">Estilo pelo</h3>
             <GridOptions
               :options="hairsOptions"
-              :selectedOption="avatarOptions.shirt.name"
+              :selectedOption="avatarOptions.hair.name"
               @update:selectedOption="changeHair"
               :svgWidth="93"
               :svgHeight="102"
@@ -425,16 +425,34 @@ const {
 }
 .contenedor-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   height: 100vh;
+}
+@media only screen and (min-width: 768px) {
+  .contenedor-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+}
 }
 .columna-opciones {
   background-color: white;
   padding: 35px 40.1px 0px 40.1px;
+  order: 2;
+}
+@media only screen and (min-width: 768px) {
+  .columna-opciones { 
+    order:0;
+  }
 }
 .columna-opciones .titulo {
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .columna-opciones .titulo { 
+  text-align: left;
+  }
 }
 .columna-opciones .categorias {
   display: flex;
@@ -473,9 +491,18 @@ const {
   display: flex;
   justify-content: center;
   margin-top: 19.21px;
-  gap: 5px;
+  /* gap: 5px; */
   padding-top: 20px;
+  padding-bottom: 20px;
 }
+.columna-avatar .contenedor-acciones > * {
+  margin-right: 5px;
+}
+
+.columna-avatar .contenedor-acciones > *:last-child {
+  margin-right: 0;
+}
+
 .columna-avatar .accion {
   padding: 10px 38px;
   border-radius: 30px;
